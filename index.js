@@ -151,3 +151,13 @@ class Dice {
     
     }
 }
+
+const btnCloseModal= document.querySelector ('.closeModal')
+const overlay= document.querySelector ('.overlay')
+const modal= document.querySelector ('.modal')
+function closeModal(){
+  modal.style.display = "none"
+  overlay.style.display = "none"
+}
+
+btnCloseModal.addEventListener('click',closeModal)
