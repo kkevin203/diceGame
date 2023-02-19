@@ -143,3 +143,11 @@ class Player{
       this.totalScore = 0
     }
 }
+
+class Dice {   
+    rollDice(){
+      this.oldFace=this.myCurrentFace
+      this.myCurrentFace = getRandomInt(6) + 1
+    
+    }
+}
