@@ -267,32 +267,32 @@ html, body {
     opacity: 0.90;
 }
 .face.one {
-    background: url(./image/number1.png) no-repeat center;
+    background: url(assets/number1.png) no-repeat center;
     background-size: 12vw 12vw;
     /* transform: rotateY(0deg) translateZ(6vw); */
 }
 .face.two {
-    background: url(./image/number2.png) no-repeat center;
+    background: url(assets/number2.png) no-repeat center;
     background-size: 12vw 12vw;
     /* transform: rotateX(90deg) translateZ(6vw); */
 }
 .face.three {
-    background: url(./image/number3.png) no-repeat center;
+    background: url(assets/number3.png) no-repeat center;
     background-size: 12vw 12vw;
     /* transform: rotateY(-90deg) translateZ(6vw); */
 }
 .face.four {
-    background: url(./image/number4.png) no-repeat center;
+    background: url(assets/number4.png) no-repeat center;
     background-size: 12vw 12vw;
     /* transform: rotateY(90deg) translateZ(6vw); */
 }
 .face.five {
-    background: url(./image/number5.png) no-repeat center;
+    background: url(assets/number5.png) no-repeat center;
     background-size: 12vw 12vw;
     /* transform: rotateX(-90deg) translateZ(6vw); */
 }
 .face.six {
-    background: url(./image/number6.png) no-repeat center;
+    background: url(assets/number6.png) no-repeat center;
     background-size: 12vw 12vw;
     /* transform: rotateY(180deg) translateZ(6vw); */
 }
@@ -317,6 +317,17 @@ html, body {
     transform: translate(-50%,-50%);
     background-color: rgb(174, 26, 26);
     border-radius: 10px;
+}
+.closeModal{
+        font-size: 3.5vw;
+        font-size: 1.5vw;
+        color: #111;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-decoration: none;
+        background-color:#ffffff99;
+        padding: 1vw;
+        border-radius: 8px;
     
 }
     

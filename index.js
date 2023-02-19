@@ -133,9 +133,32 @@ if (myNumberOfDice ===5)
 return 'five'
 if (myNumberOfDice ===6)
 return 'six'
-
-
-
+}
 }
 
+class Player{
+    constructor(name){
+      this.name = name
+      this.currentScore = 0
+      this.totalScore = 0
+    }
 }
+
+class Dice {   
+    rollDice(){
+      this.oldFace=this.myCurrentFace
+      //random +1 pour avoir un chiffre de 1 a 6
+      this.myCurrentFace = getRandomInt(6) + 1
+    
+    }
+}
+
+const btnCloseModal= document.querySelector ('.closeModal')
+const overlay= document.querySelector ('.overlay')
+const modal= document.querySelector ('.modal')
+function closeModal(){
+  modal.style.display = "none"
+  overlay.style.display = "none"
+}
+
+btnCloseModal.addEventListener('click',closeModal)
