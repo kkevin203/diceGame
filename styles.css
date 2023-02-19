@@ -1,0 +1,388 @@
+@import url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap');
+
+html, body {
+    position: relative;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Lato, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    background-color: #fff;
+    color: #111;
+    
+    opacity: 0.97;
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.playerZone {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fff;
+    width: 50%;
+    height: 100%;
+}
+
+.playerZone.active{
+    background-color: #F0F0F0;
+}
+
+.playerZone.active .playerName {
+    font-weight: 300;
+}
+.playerZone.active .playerName::after {
+    content: '•';
+    position: absolute;
+    margin-left: 10px;
+    color: #AE0115;
+    animation-duration: .6s;
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    transition: opacity 0.1s;
+}
+.playerTotalScore {
+    margin: 0;
+    margin-top: 10vh;
+    padding: 0;
+    font-size: 6vw;
+    font-weight: 100;
+    color: #AE0115;
+    margin-bottom: auto;
+}
+.playerTotalScore::after {
+    content: '/100';
+    font-size: 3vw;
+    color: #777;
+}
+
+.playerActuelScoreBox {
+    margin: 0;
+    margin-top: 5vh;
+    margin-bottom: 20vh;
+    padding: 1.5vh;
+    min-width: 15%;
+    background-color: #AE0115;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 8px;
+    opacity: 0.9;
+}
+
+.playerActuelScoreTitle {
+    margin: 0;
+    padding: 0;
+    font-size: 1.3vw;
+    font-weight: 300;
+    color: #111;
+    text-transform: uppercase;
+}
+
+.playerActuelScore {
+    margin: 0;
+    padding: 0;
+    font-size: 3.5vw;
+    font-weight: 300;
+    color: #fff;
+}
+.confetti {
+    background-repeat: repeat-x;
+    background-position: top -10px center;
+    background-image: url("data:image/svg+xml,%3Csvg width='600' height='90' viewBox='0 0 600 90' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='42' y='-10' width='6' height='10'/%3E%3Crect x='84' y='-10' width='6' height='10'/%3E%3Crect x='126' y='-13' width='5' height='13'/%3E%3Crect x='168' y='-13' width='5' height='13'/%3E%3Crect x='210' y='-10' width='6' height='10'/%3E%3Crect x='252' y='-13' width='5' height='13'/%3E%3Crect x='294' y='-10' width='6' height='10'/%3E%3Crect x='336' y='-13' width='5' height='13'/%3E%3Crect x='378' y='-13' width='5' height='13'/%3E%3Crect x='420' y='-10' width='6' height='10'/%3E%3Crect x='462' y='-10' width='6' height='10'/%3E%3Crect x='504' y='-13' width='5' height='13'/%3E%3Crect x='546' y='-10' width='6' height='10'/%3E%3Cstyle type='text/css'%3E rect %7B opacity: 0; %7D rect:nth-child(1) %7B transform-origin: 45px 5px; transform: rotate(-145deg); animation: blast 700ms infinite ease-out; animation-delay: 88ms; animation-duration: 631ms; %7D rect:nth-child(2) %7B transform-origin: 87px 5px; transform: rotate(164deg); animation: blast 700ms infinite ease-out; animation-delay: 131ms; animation-duration: 442ms; %7D rect:nth-child(3) %7B transform-origin: 128px 6px; transform: rotate(4deg); animation: blast 700ms infinite ease-out; animation-delay: 92ms; animation-duration: 662ms; %7D rect:nth-child(4) %7B transform-origin: 170px 6px; transform: rotate(-175deg); animation: blast 700ms infinite ease-out; animation-delay: 17ms; animation-duration: 593ms; %7D rect:nth-child(5) %7B transform-origin: 213px 5px; transform: rotate(-97deg); animation: blast 700ms infinite ease-out; animation-delay: 122ms; animation-duration: 476ms; %7D rect:nth-child(6) %7B transform-origin: 255px 6px; transform: rotate(57deg); animation: blast 700ms infinite ease-out; animation-delay: 271ms; animation-duration: 381ms; %7D rect:nth-child(7) %7B transform-origin: 297px 5px; transform: rotate(-46deg); animation: blast 700ms infinite ease-out; animation-delay: 131ms; animation-duration: 619ms; %7D rect:nth-child(8) %7B transform-origin: 338px 6px; transform: rotate(-65deg); animation: blast 700ms infinite ease-out; animation-delay: 85ms; animation-duration: 668ms; %7D rect:nth-child(9) %7B transform-origin: 380px 6px; transform: rotate(13deg); animation: blast 700ms infinite ease-out; animation-delay: 128ms; animation-duration: 377ms; %7D rect:nth-child(10) %7B transform-origin: 423px 5px; transform: rotate(176deg); animation: blast 700ms infinite ease-out; animation-delay: 311ms; animation-duration: 508ms; %7D rect:nth-child(11) %7B transform-origin: 465px 5px; transform: rotate(108deg); animation: blast 700ms infinite ease-out; animation-delay: 108ms; animation-duration: 595ms; %7D rect:nth-child(12) %7B transform-origin: 506px 6px; transform: rotate(62deg); animation: blast 700ms infinite ease-out; animation-delay: 105ms; animation-duration: 375ms; %7D rect:nth-child(13) %7B transform-origin: 549px 5px; transform: rotate(16deg); animation: blast 700ms infinite ease-out; animation-delay: 149ms; animation-duration: 491ms; %7D rect:nth-child(odd) %7B fill: %2365BB5C; %7D rect:nth-child(even) %7B z-index: 1; fill: %2333AAFF; %7D rect:nth-child(4n) %7B animation-duration: 1400ms; fill: %23F23B14; %7D rect:nth-child(3n) %7B animation-duration: 1750ms; animation-delay: 700ms; %7D rect:nth-child(4n-7) %7B fill: %232A2F6A; %7D rect:nth-child(6n) %7B fill: %23FBBA23; %7D @keyframes blast %7B from %7B opacity: 0; %7D 20%25 %7B opacity: 1; %7D to %7B transform: translateY(90px); %7D %7D %3C/style%3E%3C/svg%3E%0A");
+    background-size: cover;
+}
+.playerWinner {
+    margin: 0;
+    margin-bottom: 20vh;
+    padding: 0;
+    font-size: 2vw;
+    font-weight: bold;
+    color: #AE0115;
+    text-transform: uppercase;
+}
+.playerWinner::before {
+    content: '\f59c';
+    font-family: 'Font Awesome\ 5 Free'; 
+	font-weight: 900;
+    margin-right: 0.5rem;
+}
+.blink {
+    animation-duration: .6s;
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    transition: opacity 0.1s;
+    display: none;
+}
+
+
+
+
+.newgame
+{   
+    top: 5vw;
+    font-size: 3.5vw;
+    font-size: 1.5vw;
+    color: #111;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: absolute;
+    background-color:#ffffff99;
+    padding: 1vw;
+    border-radius: 8px;
+}
+
+.newGame::before{    
+    font-weight: 900;
+    margin-right: 0.5rem;
+    color: #AE0115;
+    opacity: 0.8;
+    content: '\f522';
+}
+
+.hold, .newGame,
+.hold:focus, .newGame:focus, 
+.hold:active, .newGame:active,
+.hold:visited, .newGame:visited {
+    color: #111;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: absolute;
+    background-color: #ffffff99;
+    padding: 1vw;
+    border-radius: 8px;
+}
+.newGame {
+    top: 4.5vh;
+    font-size: 1.5vw;
+}
+
+.hold {
+    display: none;
+    top: 22vh;
+    font-size: 2vw;
+}
+.hold:hover, .newGame:hover, .rules:hover {
+    color: #777;
+    background-color: #fff
+}
+
+.hold::before,.newGame::before{
+    font-family: 'Font Awesome\ 5 Free'; 
+	font-weight: 900;
+    margin-right: 0.5rem;
+    color: #AE0115;
+    opacity: 0.8;
+    content: '\f055';
+}
+
+
+.dice {
+    position: absolute;
+    top: calc(50vh - (12vw / 2));
+    left: calc(50vw - (12vw / 2));
+    width: 12vw;
+    height: 12vw;
+    perspective: 30vw;
+    cursor: pointer;
+}
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    font-size: 1vw;
+    font-weight: bold;
+    text-transform: lowercase;
+    text-align: center;
+    padding: 5px 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 105%;
+    left: 50%;
+    margin-left: -67px;
+    opacity: 0.8;
+}
+.tooltiptext::after {
+    content: ' ';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.dice:hover .tooltiptext {
+    visibility: visible;
+}
+
+.cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-6vw);
+    transition: transform 0.25s;
+    display: flex;
+}
+.cube.active1 {
+    transform: translateZ(-6vw) rotateY(0deg);
+}
+.cube.active2 {
+    transform: translateZ(-6vw) rotateX(-90deg);
+}
+.cube.active3 {
+    transform: translateZ(-6vw) rotateY(90deg);
+}
+.cube.active4 {
+    transform: translateZ(-6vw) rotateY(-90deg);
+}
+.cube.active5 {
+    transform: translateZ(-6vw) rotateX(90deg);
+}
+.cube.active6 {
+    transform: translateZ(-6vw) rotateY(-180deg);
+}
+
+.face {
+    position: absolute;
+    width: 12vw;
+    height: 12vw;
+    opacity: 0.90;
+}
+.face.one {
+    background: url(./image/number1.png) no-repeat center;
+    background-size: 12vw 12vw;
+    /* transform: rotateY(0deg) translateZ(6vw); */
+}
+.face.two {
+    background: url(./image/number2.png) no-repeat center;
+    background-size: 12vw 12vw;
+    /* transform: rotateX(90deg) translateZ(6vw); */
+}
+.face.three {
+    background: url(./image/number3.png) no-repeat center;
+    background-size: 12vw 12vw;
+    /* transform: rotateY(-90deg) translateZ(6vw); */
+}
+.face.four {
+    background: url(./image/number4.png) no-repeat center;
+    background-size: 12vw 12vw;
+    /* transform: rotateY(90deg) translateZ(6vw); */
+}
+.face.five {
+    background: url(./image/number5.png) no-repeat center;
+    background-size: 12vw 12vw;
+    /* transform: rotateX(-90deg) translateZ(6vw); */
+}
+.face.six {
+    background: url(./image/number6.png) no-repeat center;
+    background-size: 12vw 12vw;
+    /* transform: rotateY(180deg) translateZ(6vw); */
+}
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur 10px;
+    background-color:rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+.modal{
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    font-size: 1vw;
+    width: 60vw;
+    height: 25  vw;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(174, 26, 26);
+    border-radius: 10px;
+    
+}
+    
+
+
+@keyframes blink {
+    50%     {opacity:0;}
+    100%    { opacity:1; }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .playerZone {
+        width: 100%;
+        height: 50%;
+    }
+    .playerTotalScore {
+        margin: 0;
+        font-size: 12vw;
+    }
+    .playerName {
+        font-size: 5vw;
+        margin: 15;
+    }
+    .playerZone:nth-child(odd) .playerTotalScore {
+        margin-top: 5vh;
+    }
+    .playerZone:nth-child(even) .playerTotalScore {
+        margin-bottom: 5vh;
+    }
+
+    .playerZone:nth-child(odd) .playerCurrentScoreBox {
+        margin-top: 10vh;
+    }
+    .playerZone:nth-child(even) .playerCurrentScoreBox {
+        margin-bottom: 10vh;
+    }
+    .playerZone:nth-child(odd) .playerName {
+        margin-top: 5vh;
+    }
+    .playerZone:nth-child(even) .playerName {
+        margin-bottom: 5vh;
+    }
+    .playerCurrentScoreTitle {
+        font-size: 2vw;
+    }
+    
+    .playerCurrentScore {
+        font-size: 6vw;
+    }
+
+    .newGame {
+        top: calc(50% - 3.5vw);
+        left: 5vw;
+        font-size: 3.5vw;
+      
+    }
+    .hold {
+        top: calc(50% - 3.5vw);
+        right: 5vw;
+        font-size: 5vw;
+    }
+    
+}
