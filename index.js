@@ -147,6 +147,7 @@ class Player{
 class Dice {   
     rollDice(){
       this.oldFace=this.myCurrentFace
+      //random +1 pour avoir un chiffre de 1 a 6
       this.myCurrentFace = getRandomInt(6) + 1
     
     }
