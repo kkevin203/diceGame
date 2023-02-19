@@ -133,9 +133,13 @@ if (myNumberOfDice ===5)
 return 'five'
 if (myNumberOfDice ===6)
 return 'six'
-
-
-
+}
 }
 
+class Player{
+    constructor(name){
+      this.name = name
+      this.currentScore = 0
+      this.totalScore = 0
+    }
 }
