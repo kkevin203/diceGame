@@ -77,6 +77,7 @@ onHoldClick(){
     this.players[this.currentUser].totalScore=this.players[this.currentUser].totalScore +  this.players[this.currentUser].currentScore
     this.players[this.currentUser].currentScore = 0
     this.changeTotalScore()  
+    document.getElementById('currentScore' + this.player).innerText=0
     if(this.players[this.currentUser].totalScore>= this.scoreMax){
         document.getElementById(this.playerZone).classList.add('confetti')
         document.getElementById(this.playerWinner).style.display = 'block' 
