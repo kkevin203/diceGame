@@ -122,20 +122,12 @@ document.getElementById('diceImage').classList.add(this.getMyClassName(this.myDi
 //met en place les image par rapport au random 
 getMyClassName(myNumberOfDice)
 {
-if (myNumberOfDice ===1) 
-return 'one'
-if (myNumberOfDice ===2)
-return 'two'
-if (myNumberOfDice ===3)
-return 'three'
-if (myNumberOfDice ===4)
-return 'four'
-if (myNumberOfDice ===5)
-return 'five'
-if (myNumberOfDice ===6)
-return 'six'
+return diceName[myNumberOfDice-1]
 }
 }
+ let diceName = 
+     ['one', 'two','three','four','five','six']
+ 
 
 class Player{
     constructor(name){
