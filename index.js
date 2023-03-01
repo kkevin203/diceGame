@@ -11,13 +11,11 @@ playerZone ='playerZone1'
 playerWinner = 'playerWinner1'
 scoreMax = 100
 
-
 //class principal du jeu 
 static getNewGame(){
     if (ManageGame.myGame === null)
     ManageGame.myGame = new ManageGame()
     return ManageGame.myGame
-    
 }
 constructor(){
     this.players=[]
@@ -43,11 +41,10 @@ onDiceClick(){
 //une fois le dés sur 1 il switch de joueur
     if (this.myDice.myCurrentFace===1)
     {
-        this.changeDice()
+       changeDice(this.myDice)
         this.players[this.currentUser].currentScore=0
         document.getElementById('currentScore'+this.player).innerText=this.currentPlayer.currentScore
         this.changeUser()
-        
     } 
     else 
     {
@@ -56,13 +53,10 @@ onDiceClick(){
         this.player1 = this.players[0]
         this.player2 = this.players[1]
         this.currentPlayer =this.players[this.currentUser] 
-
-    
-
     document.getElementById('currentScore'+this.player).innerText=this.currentPlayer.currentScore
         
     document.getElementById('playerName'+this.player).innerText = this.currentPlayer.name
-    this.changeDice()
+   changeDice(this.myDice)
 
     }
     console.log('totalScore %s',this.players[this.currentUser].totalScore
@@ -74,46 +68,31 @@ onHoldClick(){
 
     this.players[this.currentUser].totalScore=this.players[this.currentUser].totalScore +  this.players[this.currentUser].currentScore
     this.players[this.currentUser].currentScore = 0
-    this.changeTotalScore()  
+    changeTotalScore(this.scoreId,this.players[this.currentUser])  
     document.getElementById('currentScore' + this.player).innerText=0
     if(this.players[this.currentUser].totalScore>= this.scoreMax){
         document.getElementById(this.playerZone).classList.add('confetti')
         document.getElementById(this.playerWinner).style.display = 'block' 
         document.getElementById('currentScoreBox'+this.player).style.display = 'none'
         document.getElementById('playerWinner'+this.player).innerText= this.players[this.currentUser].name+' a gagné'
-    
     }
     else
     this.changeUser()
-
-
 }
 
 changeUser(){   
 //met en place le joueur actif
 document.getElementById(this.playerZone).classList.remove('active')
 
-if (this.currentUser ===0)
-this.currentUser = 1
-else this.currentUser=0
-this.player = this.currentUser + 1
-this.scoreId = 'scorePlayer'+this.player 
-this.playerZone='playerZone'+this.player
-this.playerWinner = 'playerWinner' + this.player
+    if (this.currentUser ===0)
+    this.currentUser = 1
+    else this.currentUser=0
+    this.player = this.currentUser + 1
+    this.scoreId = 'scorePlayer'+this.player 
+    this.playerZone='playerZone'+this.player
+    this.playerWinner = 'playerWinner' + this.player
 
 document.getElementById(this.playerZone).classList.add('active')
-
-}
-
-changeTotalScore()
-{      
-document.getElementById(this.scoreId).innerText = this.players[this.currentUser].totalScore
-}
-
-// mais en place le random des image du dés
-changeDice(){
-document.getElementById('diceImage').classList.remove(getMyClassName(this.myDice.oldFace))
-document.getElementById('diceImage').classList.add(getMyClassName(this.myDice.myCurrentFace))
 }
 }
 
@@ -121,7 +100,16 @@ document.getElementById('diceImage').classList.add(getMyClassName(this.myDice.my
 const getMyClassName = (myNumberOfDice) => diceName[myNumberOfDice-1]
 
 const diceName = ['one', 'two','three','four','five','six']
- 
+const changeTotalScore = (scoreId,currentPlayer)=>
+{      
+document.getElementById(scoreId).innerText = currentPlayer.totalScore
+}
+
+// met en place le random des image du dés
+const changeDice= (myDice) => {
+    document.getElementById('diceImage').classList.remove(getMyClassName(myDice.oldFace))
+    document.getElementById('diceImage').classList.add(getMyClassName(myDice.myCurrentFace))
+    }
 
 class Player{
     constructor(name){
