@@ -36,8 +36,6 @@ onNewClick(){
     document.getElementById('playerWinner'+this.player).innerText= null
     document.getElementById(this.playerWinner).style.display = null
     document.getElementById('currentScoreBox'+this.player).style.display = null
-
-
 }
 // quand je clic sur le dés
 onDiceClick(){
@@ -113,19 +111,15 @@ document.getElementById(this.scoreId).innerText = this.players[this.currentUser]
 
 // mais en place le random des image du dés
 changeDice(){
-document.getElementById('diceImage').classList.remove(this.getMyClassName(this.myDice.oldFace))
-document.getElementById('diceImage').classList.add(this.getMyClassName(this.myDice.myCurrentFace))
-
+document.getElementById('diceImage').classList.remove(getMyClassName(this.myDice.oldFace))
+document.getElementById('diceImage').classList.add(getMyClassName(this.myDice.myCurrentFace))
+}
 }
 
 //met en place les image par rapport au random 
-getMyClassName(myNumberOfDice)
-{
-return diceName[myNumberOfDice-1]
-}
-}
- let diceName = 
-     ['one', 'two','three','four','five','six']
+const getMyClassName = (myNumberOfDice) => diceName[myNumberOfDice-1]
+
+const diceName = ['one', 'two','three','four','five','six']
  
 
 class Player{
