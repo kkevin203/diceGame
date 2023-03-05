@@ -1,66 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-    <title>Jeu de lancer de dés </title>
-</head>
-<body>
-
-    <div class="container" id="diceRollerContainer" >
-        <div class="playerZone active" id="playerZone1">
-            <p class="playerName" id="playerName1" >Player 1</p>
-            <P class="playerTotalScore" id="scorePlayer1">0</P>
-            <p id = "playerWinner1" class="playerWinner blink">you Win</p>
-                <div class="playerActuelScoreBox" id="currentScoreBox1" style="display: block;">
-                <p class="playerActuelScoreTitle">Score actuel</p>
-                <p class="playerActuelScore"id="currentScore1">0</p>
-            </div>
-        </div>    
-        
-        <div class="playerZone" id="playerZone2">
-            <p class="playerName" id="playerName2">Player 2</p>
-            <P class="playerTotalScore"id="scorePlayer2">0</P>
-            <p id = "playerWinner2" class="playerWinner blink">you Win</p>
-            <div class="playerActuelScoreBox" id="currentScoreBox2" style="display: block;">
-                <p class="playerActuelScoreTitle">Score actuel</p>
-                <p class="playerActuelScore" id="currentScore2">0</p>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <title>Jeu de lancer de dés</title>
+  </head>
+  <body>
+    <div class="container" id="diceRollerContainer">
+      <div class="playerZone active" id="playerZone1">
+        <p class="playerName" id="playerName1">Player 1</p>
+        <p class="playerTotalScore" id="scorePlayer1">0</p>
+        <p id="playerWinner1" class="playerWinner blink">you Win</p>
+        <div
+          class="playerActuelScoreBox"
+          id="currentScoreBox1"
+          style="display: block"
+        >
+          <p class="playerActuelScoreTitle">Score actuel</p>
+          <p class="playerActuelScore" id="currentScore1">0</p>
         </div>
-        
-        <a class="newGame" href="javascript: ManageGame.getNewGame().onNewClick()" style="display: block;">new game</a>
-        <a class="hold" href="javascript: ManageGame.getNewGame().onHoldClick()" style="display: block;">Hold</a>
+      </div>
+
+      <div class="playerZone" id="playerZone2">
+        <p class="playerName" id="playerName2">Player 2</p>
+        <p class="playerTotalScore" id="scorePlayer2">0</p>
+        <p id="playerWinner2" class="playerWinner blink">you Win</p>
+        <div
+          class="playerActuelScoreBox"
+          id="currentScoreBox2"
+          style="display: block"
+        >
+          <p class="playerActuelScoreTitle">Score actuel</p>
+          <p class="playerActuelScore" id="currentScore2">0</p>
+        </div>
+      </div>
+
+      <a
+        class="newGame"
+        href="javascript: ManageGame.getNewGame().onNewClick()"
+        style="display: block"
+        >new game</a
+      >
+      <a
+        class="hold"
+        href="javascript: ManageGame.getNewGame().onHoldClick()"
+        style="display: block"
+        >Hold</a
+      >
     </div>
     <div class="overlay"></div>
     <div class="modal">
-        <h4>Les règles du jeu</h4>
-        <p>Les règles sont très simples. Cliquez sur le bouton <cite>NEW GAME</cite> pour lancer le jeu.</p>
-        <p>Un des deux joueurs est automatiquement sélectionné pour commencer la partie. Le joueur qui aura une pastille clignotante à droite de son nom commencera.</p>
-        <p>Lancez le Dé en cliquant dessus. Une fois ses rotations terminées, le nombre de point affiché sera le score obtenu. Ce score est ajouté au nombre de points du tour en cours. Vous pouvez lancer le Dé autant de fois que vous le souhaité.</p>
-        <p>Si un joueur, après avoir lancé le Dé, obtient un score de <strong>1</strong>, il perd tous ses points actuels et passe son tour!</p>
-        <p>Pour conserver le nombre de points cumulés et l'ajouter au total des points gagnés lors de cette partie, le joueur devra cliquer sur <cite>hold</cite> quand il le souhaite. Sa cagnote au tour sera remise à zéro, puis ça sera au prochain joueur de tenter sa chance.</p>
-        <p>Le premier joueur atteignant un total de 100 points gagne la partie!</p>
-        <p><strong>Bonne chance à tous!</strong></p>
-        <button class="closeModal">fermer</button>
-    </div>  
-        
-        <div class="dice" onclick="ManageGame.getNewGame().onDiceClick()" style="display: block; cursor: pointer;">
-        <span class="tooltiptext">click to roll me!</span>
-        <div class="cube">
-            <div class="face one" id="diceImage"></div>
-           
-        </div>
-</div>
-    <script type="text/javascript" src="./index.js"></script>
-    <script type="text/javascript">ManageGame.getNewGame() </script>
-</body>
+      <h4>Les règles du jeu</h4>
+      <p>
+        Les règles sont très simples. Cliquez sur le bouton
+        <cite>NEW GAME</cite> pour lancer le jeu.
+      </p>
+      <p>
+        Un des deux joueurs est automatiquement sélectionné pour commencer la
+        partie. Le joueur qui aura une pastille clignotante à droite de son nom
+        commencera.
+      </p>
+      <p>
+        Lancez le Dé en cliquant dessus. Une fois ses rotations terminées, le
+        nombre de point affiché sera le score obtenu. Ce score est ajouté au
+        nombre de points du tour en cours. Vous pouvez lancer le Dé autant de
+        fois que vous le souhaité.
+      </p>
+      <p>
+        Si un joueur, après avoir lancé le Dé, obtient un score de
+        <strong>1</strong>, il perd tous ses points actuels et passe son tour!
+      </p>
+      <p>
+        Pour conserver le nombre de points cumulés et l'ajouter au total des
+        points gagnés lors de cette partie, le joueur devra cliquer sur
+        <cite>hold</cite> quand il le souhaite. Sa cagnote au tour sera remise à
+        zéro, puis ça sera au prochain joueur de tenter sa chance.
+      </p>
+      <p>
+        Le premier joueur atteignant un total de 100 points gagne la partie!
+      </p>
+      <p><strong>Bonne chance à tous!</strong></p>
+      <button class="closeModal">fermer</button>
+    </div>
 
+    <div
+      class="dice"
+      onclick="ManageGame.getNewGame().onDiceClick()"
+      style="display: block; cursor: pointer"
+    >
+      <span class="tooltiptext">click to roll me!</span>
+      <div class="cube">
+        <div class="face one" id="diceImage"></div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="./index.js"></script>
+  <script type="text/javascript">
+    ManageGame.getNewGame();
+  </script>
 </html>
